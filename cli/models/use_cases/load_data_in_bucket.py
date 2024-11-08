@@ -13,8 +13,8 @@ class LoadDataInBucketUseCase:
     _file: Path
 
     def execute(self):
-        if self._s3_service.check_connection():
-            raise Exception("")
+        if not self._s3_service.check_connection():
+            raise Exception("Нет соединения в сервером")
 
         self._s3_service.create_bucket_if_not_exist(self._bucket_name)
         self._s3_service.load_file_in_bucket(self._bucket_name, self._file)

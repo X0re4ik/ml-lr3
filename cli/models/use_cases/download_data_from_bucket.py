@@ -13,8 +13,8 @@ class DownloadDataFromBucketUseCase:
     _output_file: str
 
     def execute(self):
-        if self._s3_service.check_connection():
-            raise Exception("")
+        if not self._s3_service.check_connection():
+            raise Exception("Нет соединения с S3 хранилищем")
 
         self._s3_service.unload_file_from_bucket(
             self._bucket_name, self._filename, self._output_file
