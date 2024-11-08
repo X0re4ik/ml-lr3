@@ -2,10 +2,10 @@ import click
 from models.services.file import get_file_service
 from models.services.s3 import get_s3_service
 from models.use_cases.data_processing import get_data_processing_use_case
-from models.use_cases.download_data_from_bucket import \
-    get_download_data_from_bucket_use_caseI
-from models.use_cases.load_data_in_bucket import \
-    get_load_data_in_bucket_use_case
+from models.use_cases.download_data_from_bucket import (
+    get_download_data_from_bucket_use_caseI,
+)
+from models.use_cases.load_data_in_bucket import get_load_data_in_bucket_use_case
 from models.utils.s3_client import get_boto3_client
 
 

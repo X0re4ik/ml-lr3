@@ -13,7 +13,6 @@ class LoadDataInBucketUseCase:
     _file: Path
 
     def execute(self):
-
         if self._s3_service.check_connection():
             raise Exception("")
 
@@ -21,7 +20,9 @@ class LoadDataInBucketUseCase:
         self._s3_service.load_file_in_bucket(self._bucket_name, self._file)
 
 
-def get_load_data_in_bucket_use_case(bucket_name: str, s3_service: S3Service, file: Path):
+def get_load_data_in_bucket_use_case(
+    bucket_name: str, s3_service: S3Service, file: Path
+):
     return LoadDataInBucketUseCase(
         _bucket_name=bucket_name,
         _s3_service=s3_service,

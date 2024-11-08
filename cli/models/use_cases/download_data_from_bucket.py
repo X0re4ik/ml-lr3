@@ -13,7 +13,6 @@ class DownloadDataFromBucketUseCase:
     _output_file: str
 
     def execute(self):
-
         if self._s3_service.check_connection():
             raise Exception("")
 

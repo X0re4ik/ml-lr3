@@ -5,11 +5,14 @@ from typing import Any
 
 @dataclass
 class S3Service:
-
     _client: Any
 
     def check_connection(self) -> bool:
-        self._client.list_buckets()
+        try:
+            self._client.list_buckets()
+            return True
+        except Exception:
+            return False
 
     def load_file_in_bucket(self, bucket_name: str, file: Path) -> str:
         path_to_file = file.name

@@ -1,6 +1,6 @@
 import boto3
 import botocore
-import botocore.client  
+import botocore.client
 
 
 def get_boto3_client(
